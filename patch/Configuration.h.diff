@@ -1,5 +1,5 @@
 diff --git a/../Configurations/config/examples/Creality/Ender-3/BigTreeTech SKR Mini E3 3.0/Configuration.h b/../Marlin/Marlin/Configuration.h
-index c631ff2..b3880eb 100644
+index c631ff2..578de6a 100644
 --- a/../Configurations/config/examples/Creality/Ender-3/BigTreeTech SKR Mini E3 3.0/Configuration.h	
 +++ b/../Marlin/Marlin/Configuration.h
 @@ -62,7 +62,7 @@
@@ -20,12 +20,38 @@ index c631ff2..b3880eb 100644
  
  // Printer's unique ID, used by some programs to differentiate between machines.
  // Choose your own or use a service like https://www.uuidgenerator.net/version4
+@@ -624,9 +624,9 @@
+     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
+     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
+   #else
+-    #define DEFAULT_Kp  21.73
+-    #define DEFAULT_Ki   1.54
+-    #define DEFAULT_Kd  76.55
++    #define DEFAULT_Kp 35.25
++    #define DEFAULT_Ki 3.83
++    #define DEFAULT_Kd 81.08
+   #endif
+ #endif
+ 
+@@ -707,9 +707,9 @@
+ 
+   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
+   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
+-  #define DEFAULT_bedKp 41.78
+-  #define DEFAULT_bedKi 7.32
+-  #define DEFAULT_bedKd 158.93
++  #define DEFAULT_bedKp 81.38
++  #define DEFAULT_bedKi 15.89
++  #define DEFAULT_bedKd 277.76
+ 
+   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
+ #endif // PIDTEMPBED
 @@ -1086,7 +1086,7 @@
   * Override with M92
   *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
   */
 -#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
-+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 426 }
++#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 420 }
  
  /**
   * Default Max Feed Rate (mm/s)
@@ -52,7 +78,7 @@ index c631ff2..b3880eb 100644
   *     O-- FRONT --+
   */
 -#define NOZZLE_TO_PROBE_OFFSET { -40, -10, -1.85 }
-+#define NOZZLE_TO_PROBE_OFFSET { -42, -10, -2.81 }
++#define NOZZLE_TO_PROBE_OFFSET { -42, -10, -2.77 }
  
  // Most probes should stay away from the edges of the bed, but
  // with NOZZLE_AS_PROBE this can be negative for a wider probing area.

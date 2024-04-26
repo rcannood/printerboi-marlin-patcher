@@ -1,5 +1,5 @@
 diff --git a/../Configurations/config/examples/Creality/Ender-3/BigTreeTech SKR Mini E3 3.0/Configuration_adv.h b/../Marlin/Marlin/Configuration_adv.h
-index cfceba9..1bd9582 100644
+index cfceba9..f0b8503 100644
 --- a/../Configurations/config/examples/Creality/Ender-3/BigTreeTech SKR Mini E3 3.0/Configuration_adv.h	
 +++ b/../Marlin/Marlin/Configuration_adv.h
 @@ -1282,7 +1282,7 @@
@@ -20,16 +20,7 @@ index cfceba9..1bd9582 100644
    #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
      //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
      //#define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
-@@ -2006,10 +2006,16 @@
-  *
-  * See https://marlinfw.org/docs/features/lin_advance.html for full instructions.
-  */
-+/*
-+tower method
-+pa_step <- .004 # pa increase for every 1mm increase in height
-+optimal_heights_mm <- c(18, 20, 21, 20, 18)
-+mean(optimal_heights) * pa_step # 0.776
-+*/
+@@ -2009,7 +2009,7 @@
  #define LIN_ADVANCE
  #if ENABLED(LIN_ADVANCE)
    //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants

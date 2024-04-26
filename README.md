@@ -71,7 +71,7 @@ We enable the following settings in `Configuration.h`:
 +#define BLTOUCH
 
 -#define NOZZLE_TO_PROBE_OFFSET { -40, -10, -1.85 }
-+#define NOZZLE_TO_PROBE_OFFSET { -42, -10, -2.72 }
++#define NOZZLE_TO_PROBE_OFFSET { -42, -10, -2.77 }
 
 -//#define AUTO_BED_LEVELING_BILINEAR
 +#define AUTO_BED_LEVELING_BILINEAR
@@ -117,7 +117,7 @@ We enable the following settings in `Configuration.h`:
 
 ```diff
 -#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
-+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 426 }
++#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 420 }
 ```
 
 The extruder steps per unit was computed by printing attaching a piece of tape at 120mm distance from the extruder and extruding 100mm of filament. The extruder steps was computed by dividing the expected extrusion length by the actual extrusion length.
@@ -126,11 +126,11 @@ The extruder steps per unit was computed by printing attaching a piece of tape a
 expected_extrusion_mm <- 100
 orig_tape_distance_mm <- 120
 final_tape_distance_mm <- 23
-orig_steps_per_mm <- 440
+orig_steps_per_mm <- 426
 
 actual_extrusion_mm <- orig_tape_distance_mm - final_tape_distance_mm
 multiplier <- expected_extrusion_mm / actual_extrusion_mm
-orig_steps_per_mm / multiplier # 426
+orig_steps_per_mm / multiplier # 413
 ```
 
 And in `Configuration_adv.h`:
@@ -147,3 +147,46 @@ pa_step <- .004 # pa increase for every 1mm increase in height
 optimal_heights_mm <- c(18, 20, 21, 20, 18)
 mean(optimal_heights) * pa_step # 0.776
 ```
+
+### PID autotune
+
+Spin up fan
+
+```gcode
+M106 S255
+```
+
+Run PID autotune on the hotend.
+
+```gcode
+M303 E0 S200 C8 U1
+```
+
+Update `Configuration.h` with the computed values.
+
+```diff
+-    #define DEFAULT_Kp  21.73
+-    #define DEFAULT_Ki   1.54
+-    #define DEFAULT_Kd  76.55
++    #define DEFAULT_Kp 35.25
++    #define DEFAULT_Ki 3.83
++    #define DEFAULT_Kd 81.08
+```
+
+Run PID autotune on the bed.
+
+```gcode
+M303 E-1 S60 C8 U1
+```
+
+Update `Configuration.h` with the computed values.
+
+```diff
+-  #define DEFAULT_bedKp 41.78
+-  #define DEFAULT_bedKi 7.32
+-  #define DEFAULT_bedKd 158.93
++  #define DEFAULT_bedKp 81.38
++  #define DEFAULT_bedKi 15.89
++  #define DEFAULT_bedKd 277.76
+```
+
