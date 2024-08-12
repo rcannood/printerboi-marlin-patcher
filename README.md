@@ -2,14 +2,17 @@
 
 This repository contains code to patch marlin firmware for printerboi, and documents custom tweaks and calibrations for the printer.
 
+> [!NOTE]  
+> Since I switched to Klipper for printerboi, the scripts and patches might be out of date.
+
 ## Printerboi mods
 
 * BigTreeTech Mini E3 V3.0 board
-* 3DTouch (BLTouch clone)
-* All metal hotend
+* 3DTouch -- BLTouch clone ([info](https://opencircuit.shop/product/3d-touch-auto-bed-leveling-sensor))
 * Direct drive
 * Y-axis linear rail
 * Belt tensioning on Z-axis
+* Microswiss All metal hotend clone ([info](https://store.micro-swiss.com/collections/all-metal-hotend-kits/products/all-metal-hotend-kit-for-cr-10))
 * BMG (clone) extruder ([info](https://www.youtube.com/watch?v=f2KTWnF3r1k))
 * Hero Me Gen 7.4 printhead platform ([info](https://www.printables.com/model/39322-hero-me-gen-7-platform-release-4))
 
